@@ -1,4 +1,11 @@
 {
+  "accountEntry": {
+    "navigation": "Accounttoegang",
+    "login": "Inloggen",
+    "loginHeading": "Inloggen bij ParaZeni",
+    "registerHeading": "Account aanmaken",
+    "registerDescription": "Vul je gegevens in om je ParaZeni-account aan te maken."
+  },
   "common": {
     "back": "Terug",
     "title": "Inloggen met Zitadel"

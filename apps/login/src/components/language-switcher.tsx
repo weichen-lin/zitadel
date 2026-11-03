@@ -4,7 +4,7 @@ import { setLanguageCookie } from "@/lib/cookies";
 import { Lang } from "@/lib/i18n";
 import { APPEARANCE_STYLES, getComponentRoundness, getThemeConfig } from "@/lib/theme";
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
-import { CheckIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import { CheckIcon, ChevronDownIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
@@ -50,14 +50,15 @@ export function LanguageSwitcher({ languages }: { languages: Lang[] }) {
             "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25",
           )}
         >
+          <GlobeAltIcon aria-hidden="true" className="account-language-icon hidden" />
           {selected.name}
           <ChevronDownIcon className="group pointer-events-none absolute top-2.5 right-2.5 size-4" aria-hidden="true" />
         </ListboxButton>
         <ListboxOptions
-          anchor="bottom"
+          anchor="bottom start"
           transition
           className={clsx(
-            `bg-background-light-500 dark:bg-background-dark-500 w-[var(--button-width)] rounded-md border border-black/5 p-1 [--anchor-gap:var(--spacing-1)] focus:outline-none dark:border-white/5`,
+            `bg-background-light-500 dark:bg-background-dark-500 z-50 w-44 rounded-md border border-black/5 p-1 shadow-md [--anchor-gap:var(--spacing-1)] [--anchor-max-height:16rem] [--anchor-padding:8px] focus:outline-none dark:border-white/5`,
             "transition duration-100 ease-in data-[leave]:data-[closed]:opacity-0",
           )}
         >

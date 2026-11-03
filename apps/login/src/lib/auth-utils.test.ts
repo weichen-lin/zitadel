@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { getValidLocaleFromUILocales, isRSCRequest, isValidLanguage, validateAuthRequest } from "./auth-utils";
+import { getLoginLanguages } from "./i18n";
 
 describe("auth-utils", () => {
   describe("isValidLanguage", () => {
@@ -37,6 +38,21 @@ describe("auth-utils", () => {
       expect(getValidLocaleFromUILocales(["de-CH"])).toBe("de");
       expect(getValidLocaleFromUILocales(["en-US"])).toBe("en");
       expect(getValidLocaleFromUILocales(["zh-CN"])).toBe("zh");
+    });
+
+    it("keeps the Chinese script for regional language tags", () => {
+      for (const tag of ["zh-TW", "zh-Hant", "ZH-hant-TW", "zh-HK", "zh-MO"]) {
+        expect(getValidLocaleFromUILocales([tag])).toBe("zh-TW");
+      }
+      for (const tag of ["zh", "zh-CN", "zh-Hans-TW"]) {
+        expect(getValidLocaleFromUILocales([tag])).toBe("zh");
+      }
+    });
+
+    it("offers both scripts only when generic Chinese is allowed", () => {
+      expect(getLoginLanguages(["zh"]).map((lang) => lang.code)).toEqual(["zh", "zh-TW"]);
+      expect(getLoginLanguages(["en"]).map((lang) => lang.code)).toEqual(["en"]);
+      expect(getLoginLanguages(["zh-Hant"]).map((lang) => lang.code)).toEqual(["zh-TW"]);
     });
 
     it("should return first valid language when multiple provided", () => {

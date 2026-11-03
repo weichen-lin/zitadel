@@ -1,4 +1,5 @@
 import { BrandingSettings } from "@zitadel/proto/zitadel/settings/v2/branding_settings_pb";
+import { ResourceOwnerType } from "@zitadel/proto/zitadel/settings/v2/settings_pb";
 import tinycolor from "tinycolor2";
 
 export interface Color {
@@ -17,17 +18,17 @@ export type ColorMap = {
   [_key in MapName]: Color[];
 };
 
-export const DARK_PRIMARY = "#eeeeee";
-export const PRIMARY = "#5469d4";
+export const DARK_PRIMARY = "#f39783";
+export const PRIMARY = "#b23827";
 
 export const DARK_WARN = "#ff3b5b";
 export const WARN = "#cd3d56";
 
-export const DARK_BACKGROUND = "#252526";
-export const BACKGROUND = "#fafafa";
+export const DARK_BACKGROUND = "#20251f";
+export const BACKGROUND = "#f7f3e9";
 
-export const DARK_TEXT = "#ffffff";
-export const TEXT = "#000000";
+export const DARK_TEXT = "#f7f3e9";
+export const TEXT = "#20251f";
 
 export type LabelPolicyColors = {
   backgroundColor: string;
@@ -56,17 +57,26 @@ type BrandingColors = {
 };
 
 export function setTheme(document: any, policy?: BrandingSettings) {
+  // The API sends explicit ZITADEL defaults even when no brand was configured.
+  // Keep custom instance colors and any colors explicitly set by an organization.
+  function brandColor(value: string | undefined, upstreamDefault: string, fallback: string) {
+    if (policy?.resourceOwnerType !== ResourceOwnerType.ORG && value?.toLowerCase() === upstreamDefault) {
+      return fallback;
+    }
+    return value || fallback;
+  }
+
   const lP: BrandingColors = {
     lightTheme: {
-      backgroundColor: policy?.lightTheme?.backgroundColor || BACKGROUND,
-      fontColor: policy?.lightTheme?.fontColor || TEXT,
-      primaryColor: policy?.lightTheme?.primaryColor || PRIMARY,
+      backgroundColor: brandColor(policy?.lightTheme?.backgroundColor, "#fafafa", BACKGROUND),
+      fontColor: brandColor(policy?.lightTheme?.fontColor, "#000000", TEXT),
+      primaryColor: brandColor(policy?.lightTheme?.primaryColor, "#5469d4", PRIMARY),
       warnColor: policy?.lightTheme?.warnColor || WARN,
     },
     darkTheme: {
-      backgroundColor: policy?.darkTheme?.backgroundColor || DARK_BACKGROUND,
-      fontColor: policy?.darkTheme?.fontColor || DARK_TEXT,
-      primaryColor: policy?.darkTheme?.primaryColor || DARK_PRIMARY,
+      backgroundColor: brandColor(policy?.darkTheme?.backgroundColor, "#111827", DARK_BACKGROUND),
+      fontColor: brandColor(policy?.darkTheme?.fontColor, "#ffffff", DARK_TEXT),
+      primaryColor: brandColor(policy?.darkTheme?.primaryColor, "#2073c4", DARK_PRIMARY),
       warnColor: policy?.darkTheme?.warnColor || DARK_WARN,
     },
   };

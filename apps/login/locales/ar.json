@@ -1,4 +1,11 @@
 {
+  "accountEntry": {
+    "navigation": "الوصول إلى الحساب",
+    "login": "تسجيل الدخول",
+    "loginHeading": "تسجيل الدخول إلى ParaZeni",
+    "registerHeading": "إنشاء حساب",
+    "registerDescription": "أدخل بياناتك لإنشاء حساب ParaZeni."
+  },
   "common": {
     "back": "رجوع",
     "title": "تسجيل الدخول باستخدام Zitadel"

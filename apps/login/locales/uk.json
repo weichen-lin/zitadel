@@ -1,4 +1,11 @@
 {
+  "accountEntry": {
+    "navigation": "Доступ до облікового запису",
+    "login": "Увійти",
+    "loginHeading": "Вхід до ParaZeni",
+    "registerHeading": "Створити обліковий запис",
+    "registerDescription": "Введіть свої дані, щоб створити обліковий запис ParaZeni."
+  },
   "common": {
     "back": "Назад",
     "title": "Вхід через Zitadel"

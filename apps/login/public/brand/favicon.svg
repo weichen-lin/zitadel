@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="zh-Hant" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="ParaZeni">
+  <title>ParaZeni</title>
+<style>@media (prefers-color-scheme: dark) { .seal { fill: #FFFFFF; } }</style>
+<path class="seal" fill="#B23827" d="M16 80 V56 L56 16 H150 C204 16 240 50 240 104 V144 H136 L200 80 Z M240 176 V200 L200 240 H106 C52 240 16 206 16 152 V112 H120 L56 176 Z"/>
+</svg>

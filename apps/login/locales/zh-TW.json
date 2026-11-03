@@ -1,0 +1,490 @@
+{
+  "accountEntry": {
+    "navigation": "帳號入口",
+    "login": "登入",
+    "loginHeading": "登入 ParaZeni",
+    "registerHeading": "建立帳號",
+    "registerDescription": "填寫以下資料，註冊你的 ParaZeni 帳號。"
+  },
+  "common": {
+    "back": "返回",
+    "title": "登入 ParaZeni"
+  },
+  "appearance": {
+    "light": "切換至淺色模式",
+    "system": "依系統設定顯示",
+    "dark": "切換至深色模式"
+  },
+  "accounts": {
+    "title": "選擇帳號",
+    "description": "請選擇要使用的帳號。",
+    "addAnother": "新增其他帳號",
+    "noResults": "找不到帳號",
+    "verified": "已驗證",
+    "expired": "已到期"
+  },
+  "logout": {
+    "title": "登出",
+    "description": "請選擇要登出的帳號。",
+    "noResults": "找不到帳號",
+    "clear": "登出此帳號",
+    "verifiedAt": "上次使用時間：{time}",
+    "success": {
+      "title": "已登出",
+      "description": "你已成功登出。"
+    }
+  },
+  "loginname": {
+    "title": "歡迎回來",
+    "description": "請輸入你的帳號。",
+    "register": "註冊新帳號",
+    "submit": "繼續",
+    "labels": {
+      "loginname": "登入帳號",
+      "username": "使用者名稱",
+      "usernameOrPhoneNumber": "使用者名稱或手機號碼",
+      "usernameOrEmail": "使用者名稱或電子郵件地址"
+    },
+    "required": {
+      "loginName": "此欄位必填"
+    },
+    "errors": {
+      "internalError": "系統發生錯誤",
+      "couldNotGetLoginSettings": "無法取得登入設定",
+      "couldNotSearchUsers": "無法搜尋使用者",
+      "couldNotGetDomain": "無法取得網域",
+      "couldNotGetHost": "無法取得主機資訊",
+      "couldNotStartIDPFlow": "無法啟動外部身分驗證",
+      "moreThanOneUserFound": "找到多個相符的帳號，請輸入可辨識單一帳號的登入資料。",
+      "userNotFound": "找不到這個帳號",
+      "couldNotCreateSession": "無法為此帳號建立登入工作階段",
+      "initialUserNotSupported": "此帳號尚未完成初始化，暫時無法使用。",
+      "localAuthenticationNotAllowed": "此處不允許使用本機帳號登入。請聯絡管理員。",
+      "passkeysNotAllowed": "此處不允許使用通行金鑰。請聯絡管理員。",
+      "couldNotFindIdentityProvider": "找不到身分提供者。",
+      "userNotActive": "此帳號尚未啟用。請聯絡管理員。"
+    }
+  },
+  "zitadel": {
+    "errors": {
+      "errorOccured": "發生錯誤",
+      "multipleUsersFound": "找到多個相符的帳號",
+      "userNotFound": "找不到這個帳號"
+    }
+  },
+  "password": {
+    "verify": {
+      "title": "密碼",
+      "description": "請輸入你的密碼。",
+      "resetPassword": "重設密碼",
+      "submit": "繼續",
+      "labels": {
+        "password": "密碼"
+      },
+      "required": {
+        "password": "此欄位必填"
+      },
+      "errors": {
+        "couldNotVerifyPassword": "無法驗證密碼",
+        "couldNotResetPassword": "無法重設密碼"
+      },
+      "info": {
+        "passwordResetSent": "請查看電子郵件，依照信中的指示重設密碼。"
+      }
+    },
+    "set": {
+      "title": "設定密碼",
+      "description": "請為你的帳號設定密碼。",
+      "codeSent": "新的驗證碼已寄到你的信箱。",
+      "noCodeReceived": "沒收到驗證碼？",
+      "resend": "重寄驗證碼",
+      "submit": "繼續",
+      "labels": {
+        "code": "驗證碼",
+        "newPassword": "新密碼",
+        "confirmPassword": "確認密碼"
+      },
+      "required": {
+        "code": "此欄位必填",
+        "newPassword": "請輸入密碼。",
+        "confirmPassword": "此欄位必填"
+      },
+      "errors": {
+        "couldNotSetPassword": "無法設定密碼",
+        "couldNotResetPassword": "無法重設密碼",
+        "couldNotVerifyPassword": "無法驗證密碼"
+      }
+    },
+    "change": {
+      "title": "變更密碼",
+      "description": "請為你的帳號設定密碼。",
+      "submit": "繼續",
+      "labels": {
+        "currentPassword": "目前的密碼",
+        "newPassword": "新密碼",
+        "confirmPassword": "確認密碼"
+      },
+      "required": {
+        "currentPassword": "請輸入目前的密碼。",
+        "newPassword": "請輸入新密碼。",
+        "confirmPassword": "此欄位必填"
+      },
+      "errors": {
+        "currentPasswordInvalid": "目前的密碼不正確。",
+        "couldNotChangePassword": "無法變更密碼",
+        "couldNotVerifyPassword": "無法驗證密碼",
+        "unknownError": "不明錯誤"
+      }
+    },
+    "complexity": {
+      "length": "至少要有 {minLength} 個字元。",
+      "hasSymbol": "至少要有一個符號。",
+      "hasNumber": "至少要有一個數字。",
+      "hasUppercase": "至少要有一個大寫英文字母。",
+      "hasLowercase": "至少要有一個小寫英文字母。",
+      "equals": "兩次輸入的密碼相同。",
+      "matches": "相符",
+      "doesNotMatch": "不相符"
+    },
+    "errors": {
+      "noHostFound": "找不到主機",
+      "couldNotSendResetLink": "無法寄送密碼重設連結",
+      "couldNotCreateSessionForUser": "無法為此帳號建立登入工作階段",
+      "couldNotVerifyPassword": "無法驗證密碼",
+      "failedToAuthenticate": "驗證失敗。密碼已輸錯 {failedAttempts} 次，最多可嘗試 {maxPasswordAttempts} 次。{lockoutMessage}",
+      "failedToAuthenticateNoLimit": "驗證失敗。",
+      "accountLockedContactAdmin": "請聯絡管理員解除帳號鎖定。",
+      "userNotFound": "找不到這個帳號",
+      "initialUserNotSupported": "此帳號尚未完成初始化，暫時無法使用。",
+      "userInitialStateNotSupported": "此帳號目前的初始狀態不受支援",
+      "codeOrVerificationRequired": "請輸入驗證碼，或先完成有效的身分驗證。",
+      "verificationRequired": "請先完成身分驗證。",
+      "couldNotLoadSession": "無法載入登入工作階段",
+      "couldNotLoadAuthMethods": "無法載入驗證方式",
+      "failedPrecondition": "尚未符合執行此操作的條件",
+      "sessionNotValid": "登入工作階段無效",
+      "passwordVerificationMissing": "請先驗證密碼。",
+      "passwordVerificationTooOld": "距離上次驗證已過了一段時間，請再次輸入密碼。",
+      "passwordResetNotAllowed": "此帳號不允許重設密碼。請聯絡管理員。"
+    }
+  },
+  "idp": {
+    "title": "使用單一登入（SSO）",
+    "description": "請選擇要用哪個服務登入。",
+    "orSignInWith": "或使用其他方式登入",
+    "signInWithApple": "使用 Apple 登入",
+    "signInWithGoogle": "使用 Google 登入",
+    "signInWithAzureAD": "使用 Azure AD 登入",
+    "signInWithGithub": "使用 GitHub 登入",
+    "signInWithGitlab": "使用 GitLab 登入",
+    "signInWithZitadel": "使用 ZITADEL 登入",
+    "loginError": {
+      "title": "登入失敗",
+      "description": "登入時發生錯誤。"
+    },
+    "linkingError": {
+      "title": "帳號連結失敗",
+      "description": "連結帳號時發生錯誤。"
+    },
+    "completeRegister": {
+      "title": "補齊註冊資料",
+      "description": "請填寫姓名和電子郵件地址，以完成註冊。"
+    },
+    "accountNotFound": {
+      "title": "找不到帳號",
+      "description": "找不到與此外部登入身分相連結的帳號。",
+      "info": "找不到現有帳號。請使用已有的帳號登入，或聯絡管理員。",
+      "backToLogin": "返回登入頁"
+    },
+    "registrationFailed": {
+      "title": "目前無法註冊",
+      "description": "無法完成註冊。",
+      "info": "無法確認要向哪個組織註冊。請聯絡管理員。",
+      "backToLogin": "返回登入頁"
+    },
+    "processing": {
+      "message": "正在驗證身分…",
+      "noRedirect": "伺服器未提供下一步的網址，也未回報錯誤。",
+      "unexpectedError": "發生未預期的錯誤"
+    },
+    "errors": {
+      "missingParameters": "缺少必要參數",
+      "missingIdpInfo": "缺少身分提供者的資訊",
+      "idpNotFound": "找不到身分提供者",
+      "linkingNotAllowed": "此身分提供者不允許連結帳號",
+      "linkingFailed": "無法將此外部身分連結到帳號",
+      "autoLinkingFailed": "無法自動連結帳號",
+      "userCreationFailed": "無法建立使用者帳號",
+      "orgResolutionFailed": "無法確認要向哪個組織註冊",
+      "sessionCreationFailed": "無法建立登入工作階段或確認下一步的網址",
+      "unknownError": "發生不明錯誤"
+    }
+  },
+  "ldap": {
+    "title": "LDAP 登入",
+    "description": "請輸入你的 LDAP 帳號和密碼。",
+    "submit": "繼續",
+    "labels": {
+      "username": "使用者名稱",
+      "password": "密碼"
+    },
+    "required": {
+      "username": "此欄位必填",
+      "password": "此欄位必填"
+    }
+  },
+  "mfa": {
+    "verify": {
+      "title": "驗證你的身分",
+      "description": "請選擇一種驗證方式。",
+      "noResults": "目前沒有可設定的第二種驗證方式。"
+    },
+    "set": {
+      "title": "設定雙重驗證",
+      "description": "請選擇要使用的第二種驗證方式。",
+      "skip": "略過"
+    }
+  },
+  "otp": {
+    "verify": {
+      "title": "雙重驗證",
+      "totpDescription": "請輸入驗證器 App 顯示的驗證碼。",
+      "smsDescription": "請輸入簡訊中的驗證碼。",
+      "emailDescription": "請輸入電子郵件中的驗證碼。",
+      "noCodeReceived": "沒收到驗證碼？",
+      "resendCode": "重寄驗證碼",
+      "submit": "繼續",
+      "labels": {
+        "code": "驗證碼"
+      },
+      "required": {
+        "code": "此欄位必填"
+      }
+    },
+    "set": {
+      "title": "設定雙重驗證",
+      "totpDescription": "請使用驗證器 App 掃描 QR Code。",
+      "smsDescription": "請輸入手機號碼，我們會以簡訊傳送驗證碼。",
+      "emailDescription": "請輸入電子郵件地址以接收驗證碼。",
+      "totpRegisterDescription": "請掃描 QR Code，或手動開啟網址。",
+      "submit": "繼續",
+      "labels": {
+        "code": "驗證碼"
+      },
+      "required": {
+        "code": "此欄位必填"
+      }
+    },
+    "errors": {
+      "couldNotRequestChallenge": "無法開始一次性密碼驗證",
+      "couldNotVerifyCode": "無法驗證一次性密碼"
+    }
+  },
+  "passkey": {
+    "verify": {
+      "title": "使用通行金鑰登入",
+      "description": "請依裝置提示使用指紋、臉部辨識或螢幕解鎖方式驗證身分。",
+      "usePassword": "改用密碼",
+      "submit": "繼續",
+      "errors": {
+        "couldNotRequestChallenge": "無法開始通行金鑰驗證",
+        "couldNotVerifyPasskey": "無法驗證通行金鑰",
+        "noResponseReceived": "未收到裝置回應，通行金鑰驗證失敗。",
+        "noRedirectProvided": "通行金鑰驗證完成，但未取得下一步的網址。",
+        "couldNotRetrievePasskey": "取得通行金鑰時發生錯誤",
+        "verificationCancelled": "已取消通行金鑰驗證",
+        "verificationFailed": "驗證通行金鑰時發生錯誤",
+        "couldNotFindSession": "找不到登入工作階段",
+        "couldNotUpdateSession": "無法更新登入工作階段",
+        "userNotFound": "找不到這個帳號",
+        "couldNotDetermineRedirect": "通行金鑰驗證後，無法確認下一步的網址。"
+      }
+    },
+    "set": {
+      "title": "設定通行金鑰",
+      "description": "請依裝置提示使用指紋、臉部辨識或螢幕解鎖方式驗證身分。",
+      "info": {
+        "description": "通行金鑰可讓你使用裝置的解鎖方式驗證身分，例如指紋或 Face ID。",
+        "link": "關於通行金鑰驗證"
+      },
+      "skip": "略過",
+      "submit": "繼續"
+    }
+  },
+  "u2f": {
+    "verify": {
+      "title": "雙重驗證",
+      "description": "請使用你的裝置驗證帳號。"
+    },
+    "set": {
+      "title": "設定雙重驗證",
+      "description": "請將裝置設為第二種驗證方式。",
+      "submit": "繼續"
+    }
+  },
+  "register": {
+    "methods": {
+      "passkey": "通行金鑰",
+      "password": "密碼"
+    },
+    "disabled": {
+      "title": "註冊功能已關閉",
+      "description": "目前未開放註冊。請聯絡管理員。"
+    },
+    "missingdata": {
+      "title": "註冊資料不完整",
+      "description": "請填寫姓名和電子郵件地址以完成註冊。"
+    },
+    "title": "註冊",
+    "description": "建立你的 ParaZeni 帳號。",
+    "noMethodAvailableWarning": "目前沒有可用的驗證方式。請聯絡管理員。",
+    "selectMethod": "請選擇驗證方式。",
+    "agreeTo": "註冊前，請先同意相關條款。",
+    "openHelp": "在新分頁開啟說明",
+    "termsOfService": "服務條款",
+    "privacyPolicy": "隱私權政策",
+    "submit": "繼續",
+    "password": {
+      "title": "設定密碼",
+      "description": "請為你的帳號設定密碼。",
+      "submit": "繼續",
+      "labels": {
+        "password": "密碼",
+        "confirmPassword": "確認密碼"
+      },
+      "required": {
+        "password": "請輸入密碼。",
+        "confirmPassword": "此欄位必填"
+      }
+    },
+    "labels": {
+      "firstname": "名字",
+      "lastname": "姓氏",
+      "email": "電子郵件地址"
+    },
+    "required": {
+      "firstname": "此欄位必填",
+      "lastname": "此欄位必填",
+      "email": "此欄位必填"
+    },
+    "errors": {
+      "couldNotCreateUser": "無法建立使用者",
+      "couldNotCreateSession": "無法建立登入工作階段",
+      "userNotFound": "找不到這個帳號",
+      "couldNotLinkIDP": "無法將外部身分連結到使用者帳號",
+      "couldNotRegisterUser": "無法完成帳號註冊"
+    }
+  },
+  "invite": {
+    "title": "邀請使用者",
+    "description": "請輸入受邀者的姓名和電子郵件地址。",
+    "info": "受邀者會收到一封說明後續步驟的電子郵件。",
+    "notAllowed": "目前的設定不允許邀請使用者。",
+    "submit": "繼續",
+    "success": {
+      "title": "已送出邀請",
+      "description": "電子郵件已寄出。",
+      "verified": "已送出邀請，受邀者也已完成信箱驗證。",
+      "notVerifiedYet": "已送出邀請，受邀者會收到一封說明後續步驟的電子郵件。",
+      "submit": "邀請其他使用者"
+    }
+  },
+  "signedin": {
+    "title": "歡迎，{user}！",
+    "description": "你已成功登入。",
+    "continue": "繼續",
+    "error": {
+      "title": "發生錯誤",
+      "description": "登入時發生錯誤。"
+    }
+  },
+  "verify": {
+    "userIdMissing": "缺少使用者 ID",
+    "successTitle": "帳號已驗證",
+    "successDescription": "帳號驗證完成。",
+    "successContinue": "繼續",
+    "setupAuthenticator": "設定驗證器",
+    "verify": {
+      "title": "驗證帳號",
+      "description": "請輸入驗證信中的驗證碼。",
+      "noCodeReceived": "沒收到驗證碼？",
+      "resendCode": "重寄驗證碼",
+      "codeSent": "新的驗證碼已寄到你的信箱。",
+      "submit": "繼續",
+      "labels": {
+        "code": "驗證碼"
+      },
+      "required": {
+        "code": "此欄位必填"
+      }
+    },
+    "errors": {
+      "couldNotResendEmail": "無法重新寄送電子郵件",
+      "couldNotVerifyUser": "無法驗證使用者身分",
+      "couldNotVerifyInvite": "無法驗證邀請",
+      "couldNotVerifyEmail": "無法驗證電子郵件地址",
+      "couldNotVerify": "無法完成驗證",
+      "couldNotLoadUser": "無法載入使用者資料",
+      "couldNotLoadAuthenticators": "無法載入可用的驗證方式",
+      "couldNotCreateSession": "無法建立登入工作階段",
+      "noHostFound": "找不到主機",
+      "userAlreadyVerified": "此帳號已完成驗證。",
+      "couldNotResendInvite": "無法重新寄送邀請",
+      "inviteSendFailed": "無法寄送邀請信",
+      "emailSendFailed": "無法寄送驗證信",
+      "contextMissing": "發生錯誤，請再試一次。"
+    }
+  },
+  "authenticator": {
+    "title": "選擇驗證方式",
+    "description": "請選擇驗證方式。",
+    "noMethodsAvailable": "目前沒有可用的驗證方式",
+    "allSetup": "你已經設定過驗證器。",
+    "linkWithIDP": "或連結外部身分提供者",
+    "methods": {
+      "totp": "驗證器 App",
+      "u2f": "安全金鑰（U2F）",
+      "otpEmail": "透過電子郵件接收驗證碼",
+      "otpSms": "透過簡訊接收驗證碼",
+      "passkey": "通行金鑰",
+      "password": "密碼"
+    }
+  },
+  "device": {
+    "usercode": {
+      "title": "裝置驗證碼",
+      "description": "請輸入 App 或裝置上顯示的驗證碼。",
+      "submit": "繼續",
+      "labels": {
+        "code": "驗證碼"
+      },
+      "required": {
+        "code": "此欄位必填"
+      }
+    },
+    "request": {
+      "title": "{appName} 要求連結你的帳號",
+      "description": "{appName} 要求以下權限：",
+      "disclaimer": "選擇「允許」後，{appName} 和 ZITADEL 可依各自的服務條款與隱私權政策使用你的資料。你可以隨時撤銷授權。",
+      "usercode": "裝置上顯示的驗證碼",
+      "submit": "允許",
+      "deny": "拒絕"
+    },
+    "scope": {
+      "openid": "驗證你的身分。",
+      "email": "查看你的電子郵件地址。",
+      "profile": "查看你的完整個人資料。",
+      "offline_access": "離線存取你的帳號。"
+    }
+  },
+  "error": {
+    "noUserCode": "請輸入裝置上顯示的使用者代碼。",
+    "noDeviceRequest": "找不到裝置授權要求。",
+    "unknownContext": "無法取得帳號資訊。請先輸入使用者名稱，或在網址中提供 loginName 參數。",
+    "sessionExpired": "登入已逾時或需要重新驗證，請再次登入。",
+    "failedLoading": "無法載入資料，請再試一次。",
+    "tryagain": "再試一次",
+    "couldNotContinueSession": "缺少帳號資訊，無法繼續登入。",
+    "couldNotClearSession": "無法登出，請再試一次。"
+  }
+}

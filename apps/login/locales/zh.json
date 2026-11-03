@@ -1,4 +1,11 @@
 {
+  "accountEntry": {
+    "navigation": "账号入口",
+    "login": "登录",
+    "loginHeading": "登录 ParaZeni",
+    "registerHeading": "创建账号",
+    "registerDescription": "填写以下信息以注册 ParaZeni 账号。"
+  },
   "common": {
     "back": "返回",
     "title": "使用 Zitadel 登录"

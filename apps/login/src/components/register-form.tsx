@@ -116,8 +116,8 @@ export function RegisterForm({
   return (
     <>
       {samlData && <AutoSubmitForm url={samlData.url} fields={samlData.fields} />}
-      <form className="w-full">
-        <div className="mb-4 grid grid-cols-2 gap-4">
+      <form className="account-form w-full">
+        <div className="account-fields">
           <div className="">
             <TextInput
               type="firstname"
@@ -159,11 +159,11 @@ export function RegisterForm({
         {/* show chooser if both methods are allowed */}
         {loginSettings && loginSettings.allowLocalAuthentication && loginSettings.passkeysType == PasskeysType.ALLOWED && (
           <>
-            <p className="ztdl-p mt-4 mb-6 block text-left">
+            <p className="account-method-label">
               <Translated i18nKey="selectMethod" namespace="register" />
             </p>
 
-            <div className="pb-4">
+            <div>
               <AuthenticationMethodRadio selected={selected} selectionChanged={setSelected} />
             </div>
           </>
@@ -184,8 +184,7 @@ export function RegisterForm({
           </div>
         )}
 
-        <div className="mt-8 flex w-full flex-row items-center justify-between">
-          <BackButton data-testid="back-button" />
+        <div className="account-actions">
           <Button
             type="submit"
             variant={ButtonVariants.Primary}
@@ -203,6 +202,7 @@ export function RegisterForm({
             {loading && <Spinner className="mr-2 h-5 w-5" />}
             <Translated i18nKey="submit" namespace="register" />
           </Button>
+          <BackButton />
         </div>
       </form>
     </>

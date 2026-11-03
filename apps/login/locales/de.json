@@ -1,4 +1,11 @@
 {
+  "accountEntry": {
+    "navigation": "Kontozugang",
+    "login": "Anmelden",
+    "loginHeading": "Bei ParaZeni anmelden",
+    "registerHeading": "Konto erstellen",
+    "registerDescription": "Gib deine Daten ein, um dein ParaZeni-Konto zu erstellen."
+  },
   "common": {
     "back": "Zurück",
     "title": "Anmelden mit Zitadel"

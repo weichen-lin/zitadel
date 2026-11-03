@@ -1,4 +1,5 @@
 import { BrandingSettings } from "@zitadel/proto/zitadel/settings/v2/branding_settings_pb";
+import { ResourceOwnerType } from "@zitadel/proto/zitadel/settings/v2/settings_pb";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import {
   BACKGROUND,
@@ -384,6 +385,25 @@ describe("color utilities", () => {
       expect(hasDarkBackground).toBe(true);
       expect(hasLightPrimary).toBe(true);
       expect(hasDarkPrimary).toBe(true);
+    });
+
+    it("uses ParaZeni for the stock instance palette and respects organization overrides", () => {
+      const policy = {
+        resourceOwnerType: ResourceOwnerType.INSTANCE,
+        lightTheme: { primaryColor: "#5469D4", backgroundColor: "#fafafa" },
+        darkTheme: { primaryColor: "#2073c4", backgroundColor: "#111827" },
+      } as BrandingSettings;
+      const setProperty = mockDocument.documentElement.style.setProperty;
+
+      setTheme(mockDocument, policy);
+      expect(setProperty).toHaveBeenCalledWith("--theme-light-primary-500", PRIMARY);
+      expect(setProperty).toHaveBeenCalledWith("--theme-dark-primary-500", DARK_PRIMARY);
+      expect(setProperty).toHaveBeenCalledWith("--theme-light-background-500", BACKGROUND);
+      expect(setProperty).toHaveBeenCalledWith("--theme-dark-background-500", DARK_BACKGROUND);
+
+      setProperty.mockClear();
+      setTheme(mockDocument, { ...policy, resourceOwnerType: ResourceOwnerType.ORG });
+      expect(setProperty).toHaveBeenCalledWith("--theme-light-primary-500", "#5469d4");
     });
 
     it("should set theme with custom policy colors", () => {

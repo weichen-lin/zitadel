@@ -1,4 +1,11 @@
 {
+  "accountEntry": {
+    "navigation": "Доступ к аккаунту",
+    "login": "Войти",
+    "loginHeading": "Вход в ParaZeni",
+    "registerHeading": "Создать аккаунт",
+    "registerDescription": "Введите данные для создания аккаунта ParaZeni."
+  },
   "common": {
     "back": "Назад",
     "title": "Войти с Zitadel"

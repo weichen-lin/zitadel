@@ -1,4 +1,11 @@
 {
+  "accountEntry": {
+    "navigation": "アカウントメニュー",
+    "login": "ログイン",
+    "loginHeading": "ParaZeni にログイン",
+    "registerHeading": "アカウントを作成",
+    "registerDescription": "必要事項を入力して ParaZeni アカウントを作成してください。"
+  },
   "common": {
     "back": "戻る",
     "title": "Zitadelでログイン"

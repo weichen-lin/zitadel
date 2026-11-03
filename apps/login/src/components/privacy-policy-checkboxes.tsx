@@ -42,7 +42,10 @@ export function PrivacyPolicyCheckboxes({ legal, onChange }: Props) {
         <Translated i18nKey="agreeTo" namespace="register" />
         {helpLink && (
           <span>
-            <Link href={helpLink} target="_blank" aria-label="Open help in a new tab" data-testid="help-link">
+            <Link href={helpLink} target="_blank" data-testid="help-link">
+              <span className="sr-only">
+                <Translated i18nKey="openHelp" namespace="register" />
+              </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

@@ -1,0 +1,339 @@
+// The settings row and both entry pages share one responsive frame.
+// Other authentication steps continue to use their configured DynamicTheme.
+.login-surface:has(.account-entry) {
+  --entry-canvas: #f6f5f1;
+  --entry-sheet: #fff;
+  --entry-plate: var(--theme-light-background-500, #f7f3e9);
+  --entry-ink: var(--theme-light-text-500, #20251f);
+  --entry-accent: var(--theme-light-primary-500, #b23827);
+  --entry-muted: #5c6057;
+  --entry-line: #e5e5df;
+  --entry-field: #bcbeb6;
+  --entry-tint: #eeeee8;
+  --entry-error: var(--theme-light-warn-500, #cd3d56);
+  min-height: 100svh;
+  background-color: var(--entry-canvas);
+  color: var(--entry-ink);
+  font-family: var(
+    --zitadel-font-family,
+    -apple-system,
+    BlinkMacSystemFont,
+    "PingFang TC",
+    "Microsoft JhengHei",
+    sans-serif
+  );
+
+  .dark & {
+    --entry-canvas: #191b18;
+    --entry-sheet: #242722;
+    --entry-plate: var(--theme-dark-background-500, #20251f);
+    --entry-ink: var(--theme-dark-text-500, #f7f3e9);
+    --entry-accent: var(--theme-dark-primary-500, #e89b82);
+    --entry-muted: #b8bcb0;
+    --entry-line: #43463e;
+    --entry-field: #696d62;
+    --entry-tint: #383c34;
+    --entry-error: var(--theme-dark-warn-500, #ff3b5b);
+    color-scheme: dark;
+  }
+  .login-frame {
+    width: min(858px, calc(100% - 64px));
+    padding-block: 48px;
+  }
+  :is(button, a, [role="radio"]):focus-visible {
+    outline: 2px solid var(--entry-accent);
+    outline-offset: 2px;
+  }
+  .login-tools {
+    width: 100%;
+    max-width: none;
+    margin: 12px auto 0;
+    padding: 0 2px;
+    min-height: 38px;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--entry-muted);
+
+    > div {
+      margin: 0;
+    }
+    button[aria-haspopup="listbox"] {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      color: inherit;
+      font-size: 13px;
+      svg {
+        position: static;
+        width: 14px;
+        height: 14px;
+      }
+      .account-language-icon {
+        display: block;
+      }
+    }
+    > div:has(button[aria-pressed]) {
+      gap: 2px;
+      padding: 2px;
+      border: 0;
+      border-radius: 8px;
+      background: var(--entry-tint);
+      box-shadow: none;
+
+      button {
+        width: 34px;
+        height: 30px;
+        margin: 0;
+        border: 0;
+        border-radius: 6px;
+        background: transparent;
+        color: var(--entry-muted);
+        svg {
+          width: 15px;
+          height: 15px;
+        }
+        &[aria-pressed="true"] {
+          background: var(--entry-sheet);
+          color: var(--entry-ink);
+          box-shadow: 0 1px 3px #1919161a;
+        }
+      }
+    }
+  }
+}
+
+.account-entry {
+  display: grid;
+  grid-template-columns: 36% minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid var(--entry-line);
+  border-radius: 18px;
+  background: var(--entry-sheet);
+  box-shadow: 0 10px 30px -20px #37351c40;
+}
+.account-identity {
+  position: relative;
+  overflow: hidden;
+  padding: 37px 32px;
+  background: var(--entry-plate);
+  border-inline-end: 1px solid var(--entry-line);
+  img {
+    position: relative;
+    z-index: 1;
+    width: 133px;
+  }
+}
+.account-impression {
+  position: absolute;
+  pointer-events: none;
+  width: 135%;
+  aspect-ratio: 236 / 235;
+  inset-inline-start: -28%;
+  bottom: -21%;
+  transform: rotate(-10deg);
+  background: var(--entry-accent);
+  opacity: 0.78;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+.account-content {
+  min-width: 0;
+  padding: 37px 52px 29px;
+
+  h1 {
+    margin: 0 0 29px;
+    font-size: clamp(28px, 3vw, 36px);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.25;
+    text-align: start;
+    overflow-wrap: anywhere;
+  }
+  h1:has(+ .account-description) {
+    margin-bottom: 5px;
+  }
+  .account-description {
+    margin-bottom: 29px;
+    color: var(--entry-muted);
+    font-size: 14px;
+  }
+
+  .account-form label:has(> input:not([type="checkbox"])) {
+    color: var(--entry-ink);
+    font-size: 14px;
+    font-weight: 550;
+    > span:first-child {
+      margin-bottom: 7px;
+      line-height: 1.5;
+    }
+    > input {
+      min-width: 0;
+      width: 100%;
+      height: 46px;
+      margin: 0;
+      border: 1px solid var(--entry-field);
+      border-radius: 7px;
+      padding-inline: 13px;
+      background: var(--entry-sheet);
+      font-size: 16px;
+      font-weight: 400;
+      color: inherit;
+      &:focus {
+        border-color: var(--entry-accent);
+        box-shadow: 0 0 0 1px var(--entry-accent);
+      }
+      &[aria-invalid="true"] {
+        border-color: var(--entry-error);
+      }
+    }
+  }
+}
+.account-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  margin-bottom: 33px;
+  border-bottom: 1px solid var(--entry-line);
+  > * {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 0 3px 13px;
+    margin-bottom: -1px;
+    border-bottom: 2px solid transparent;
+    color: var(--entry-muted);
+    font-size: 16px;
+    font-weight: 550;
+    line-height: 24px;
+    overflow-wrap: anywhere;
+  }
+  [aria-current="page"] {
+    color: var(--entry-ink);
+    border-color: var(--entry-accent);
+  }
+  a:hover {
+    color: var(--entry-accent);
+  }
+}
+.account-actions {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+  button[type="submit"] {
+    width: 100%;
+    min-height: 46px;
+    height: auto;
+    justify-content: center;
+    border: 0;
+    border-radius: 7px;
+    background: var(--entry-ink);
+    color: var(--entry-sheet);
+    font-size: 15px;
+    font-weight: 600;
+    &:hover:enabled {
+      opacity: 0.9;
+    }
+    &:disabled {
+      background: var(--entry-tint);
+      color: var(--entry-muted);
+      cursor: default;
+    }
+  }
+  button[type="button"] {
+    justify-self: start;
+    gap: 8px;
+    padding: 4px 0;
+    height: auto;
+    min-height: 30px;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+    color: var(--entry-muted);
+    font-size: 13px;
+    &::before {
+      content: "←" / "";
+    }
+    &:hover {
+      color: var(--entry-ink);
+    }
+  }
+}
+.account-fields,
+.account-methods {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.account-method-label {
+  margin: 16px 0 7px;
+  font-size: 14px;
+  font-weight: 550;
+}
+.account-methods {
+  gap: 10px;
+}
+.account-method {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 7px;
+  min-height: 42px;
+  padding: 5px 8px;
+  border: 1px solid var(--entry-line);
+  border-radius: 7px;
+  font-size: 14px;
+  cursor: pointer;
+  > span:first-child {
+    width: 14px;
+    height: 14px;
+    flex: none;
+    border: 1px solid var(--entry-field);
+    border-radius: 50%;
+  }
+  &[aria-checked="true"] {
+    border-color: var(--entry-accent);
+    > span:first-child {
+      border: 4px solid var(--entry-accent);
+    }
+  }
+}
+@media (max-width: 720px) {
+  .login-surface:has(.account-entry) .login-frame {
+    width: min(420px, calc(100% - 32px));
+    padding-block: 28px;
+  }
+  .account-entry {
+    display: block;
+    border-radius: 15px;
+  }
+  .account-identity {
+    padding: 26px 24px 0;
+    border: 0;
+    background: var(--entry-sheet);
+    img {
+      width: 113px;
+    }
+  }
+  .account-impression {
+    display: none;
+  }
+  .account-content {
+    padding: 21px 24px 23px;
+    h1 {
+      font-size: 29px;
+      margin-bottom: 24px;
+    }
+  }
+  .account-tabs {
+    margin-bottom: 26px;
+    > * {
+      font-size: 15px;
+      padding-bottom: 11px;
+    }
+  }
+}

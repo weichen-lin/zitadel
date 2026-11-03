@@ -1,4 +1,11 @@
 {
+  "accountEntry": {
+    "navigation": "Fiókhozzáférés",
+    "login": "Bejelentkezés",
+    "loginHeading": "Bejelentkezés a ParaZenibe",
+    "registerHeading": "Fiók létrehozása",
+    "registerDescription": "Add meg az adataidat a ParaZeni-fiókod létrehozásához."
+  },
   "common": {
     "back": "Vissza",
     "title": "Bejelentkezés a Zitadel-lel"

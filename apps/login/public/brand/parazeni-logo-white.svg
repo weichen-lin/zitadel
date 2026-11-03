@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="zh-Hant" width="943" height="256" viewBox="0 0 943 256" role="img" aria-label="ParaZeni">
+  <title>ParaZeni</title>
+<g transform="translate(0 16) scale(0.875)">
+<path fill="#FFFFFF" d="M26 84 V63 L65 24 H149 C198 24 230 55 230 104 V148 H134 L198 84 Z M230 172 V193 L191 232 H107 C58 232 26 201 26 152 V108 H122 L58 172 Z"/>
+</g>
+<g transform="translate(247 65) scale(1.24)" fill="#FFFFFF">
+  <path transform="translate(0 0)" fill-rule="evenodd" d="M5 0 H43 C66 0 79 12 79 33 C79 53 65 66 42 66 H22 V100 H5 Z M22 15 V51 H42 C55 51 62 45 62 33 C62 21 55 15 43 15 Z"/>
+  <path transform="translate(78 0)" fill-rule="evenodd" d="M6 37 C14 30 26 26 39 26 C58 26 69 36 69 55 V100 H54 V92 C48 98 40 102 29 102 C13 102 4 93 4 80 C4 64 17 56 36 56 H53 V54 C53 44 48 39 38 39 C28 39 20 42 13 48 Z M53 68 H37 C26 68 20 71 20 79 C20 85 24 89 32 89 C43 89 53 82 53 72 Z"/>
+  <path transform="translate(156 0)" fill-rule="evenodd" d="M5 28 H21 V40 C26 31 34 26 46 26 H50 V42 H46 C31 42 22 50 22 65 V100 H5 Z"/>
+  <path transform="translate(207 0)" fill-rule="evenodd" d="M6 37 C14 30 26 26 39 26 C58 26 69 36 69 55 V100 H54 V92 C48 98 40 102 29 102 C13 102 4 93 4 80 C4 64 17 56 36 56 H53 V54 C53 44 48 39 38 39 C28 39 20 42 13 48 Z M53 68 H37 C26 68 20 71 20 79 C20 85 24 89 32 89 C43 89 53 82 53 72 Z"/>
+  <path transform="translate(284 0)" fill-rule="evenodd" d="M3 0 H80 V13 L26 85 H81 V100 H3 V87 L57 15 H3 Z"/>
+  <path transform="translate(366 0)" fill-rule="evenodd" d="M74 68 H21 C22 81 30 88 42 88 C51 88 58 85 64 78 L73 88 C65 97 55 102 41 102 C19 102 4 87 4 65 C4 42 19 26 40 26 C62 26 75 42 75 61 C75 64 75 66 74 68 Z M21 56 H59 C57 46 51 39 40 39 C30 39 23 46 21 56 Z"/>
+  <path transform="translate(447 0)" fill-rule="evenodd" d="M5 28 H21 V38 C27 30 35 26 45 26 C63 26 74 38 74 58 V100 H57 V60 C57 47 52 41 42 41 C29 41 22 49 22 63 V100 H5 Z"/>
+  <path transform="translate(531 0)" fill-rule="evenodd" d="M5 28 H22 V100 H5 Z M4 6 C4 0 8 -4 14 -4 C20 -4 24 0 24 6 C24 12 20 16 14 16 C8 16 4 12 4 6 Z"/>
+</g>
+</svg>

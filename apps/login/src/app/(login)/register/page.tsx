@@ -1,3 +1,4 @@
+import { AccountEntry } from "@/components/account-entry";
 import { Alert } from "@/components/alert";
 import { DynamicTheme } from "@/components/dynamic-theme";
 import { RegisterForm } from "@/components/register-form";
@@ -37,6 +38,7 @@ export default async function Page(props: { searchParams: Promise<Record<string 
     }
   }
 
+  const t = await getTranslations("accountEntry");
   const legal = await getLegalAndSupportSettings({ serviceConfig, organization });
   const passwordComplexitySettings = await getPasswordComplexitySettings({ serviceConfig, organization });
 
@@ -83,16 +85,16 @@ export default async function Page(props: { searchParams: Promise<Record<string 
   }
 
   return (
-    <DynamicTheme branding={branding}>
-      <div className="flex flex-col space-y-4">
-        <h1>
-          <Translated i18nKey="title" namespace="register" />
-        </h1>
-        <p className="ztdl-p">
-          <Translated i18nKey="description" namespace="register" />
-        </p>
-      </div>
-
+    <AccountEntry
+      page="register"
+      branding={branding}
+      requestId={requestId}
+      organization={searchParams.organization}
+      orgDomain={searchParams.orgDomain}
+      showRegistration
+    >
+      <h1>{t("registerHeading")}</h1>
+      <p className="account-description">{t("registerDescription")}</p>
       <div className="w-full">
         {!organization && (
           <Alert>
@@ -123,6 +125,6 @@ export default async function Page(props: { searchParams: Promise<Record<string 
           </>
         )}
       </div>
-    </DynamicTheme>
+    </AccountEntry>
   );
 }

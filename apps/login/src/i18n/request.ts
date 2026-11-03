@@ -1,4 +1,4 @@
-import { LANGS, LANGUAGE_COOKIE_NAME, LANGUAGE_HEADER_NAME } from "@/lib/i18n";
+import { getLoginLanguages, LANGS, LANGUAGE_COOKIE_NAME, LANGUAGE_HEADER_NAME, resolveLoginLocale } from "@/lib/i18n";
 import { getServiceConfig } from "@/lib/service-url";
 import { getAllowedLanguages, getHostedLoginTranslation } from "@/lib/zitadel";
 import { JsonObject } from "@zitadel/client";
@@ -19,11 +19,10 @@ export default getRequestConfig(async () => {
   try {
     const settings = await getAllowedLanguages({ serviceConfig });
     if (settings.allowedLanguages?.length) {
-      const localLanguageCodes = LANGS.map((l) => l.code);
-      allowedLanguages = settings.allowedLanguages.filter((l) => localLanguageCodes.includes(l));
+      allowedLanguages = getLoginLanguages(settings.allowedLanguages).map((lang) => lang.code);
     }
     if (settings.defaultLanguage) {
-      defaultLanguage = settings.defaultLanguage;
+      defaultLanguage = resolveLoginLocale(settings.defaultLanguage) ?? fallback;
     }
   } catch (e) {
     console.warn("Failed to load global settings", e);
@@ -31,11 +30,10 @@ export default getRequestConfig(async () => {
 
   let locale: string = defaultLanguage;
 
-  const languageHeader = await (await headers()).get(LANGUAGE_HEADER_NAME);
+  const languageHeader = _headers.get(LANGUAGE_HEADER_NAME);
   if (languageHeader) {
-    // splits "en-US,en;q=0.9" to ["en", "US"] or ["en"]
-    const headerLocale = languageHeader.split(",")[0].split("-")[0];
-    if (allowedLanguages.includes(headerLocale)) {
+    const headerLocale = resolveLoginLocale(languageHeader.split(",")[0].split(";")[0]);
+    if (headerLocale && allowedLanguages.includes(headerLocale)) {
       locale = headerLocale;
     }
   }

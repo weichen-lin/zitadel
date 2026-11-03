@@ -117,7 +117,9 @@ export async function getHostedLoginTranslation({
                 case: "instance",
                 value: true,
               },
-          locale: locale,
+          locale,
+          // zh-TW is bundled by this UI. The upstream system dictionary for it falls back to English.
+          ignoreInheritance: locale === "zh-TW",
         },
         {},
       )

@@ -1,7 +1,19 @@
 {
+  "accountEntry": {
+    "navigation": "Account access",
+    "login": "Log in",
+    "loginHeading": "Log in to ParaZeni",
+    "registerHeading": "Create an account",
+    "registerDescription": "Enter your details to create your ParaZeni account."
+  },
   "common": {
     "back": "Back",
     "title": "Login with Zitadel"
+  },
+  "appearance": {
+    "light": "Switch to light mode",
+    "system": "Switch to system mode",
+    "dark": "Switch to dark mode"
   },
   "accounts": {
     "title": "Accounts",
@@ -328,6 +340,7 @@
     "noMethodAvailableWarning": "No authentication method available. Please contact your administrator.",
     "selectMethod": "Select the method you would like to authenticate",
     "agreeTo": "To register you must agree to the terms and conditions",
+    "openHelp": "Open help in a new tab",
     "termsOfService": "Terms of Service",
     "privacyPolicy": "Privacy Policy",
     "submit": "Continue",

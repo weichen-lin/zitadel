@@ -1,4 +1,11 @@
 {
+  "accountEntry": {
+    "navigation": "Hesap erişimi",
+    "login": "Giriş yap",
+    "loginHeading": "ParaZeni’ye giriş yap",
+    "registerHeading": "Hesap oluştur",
+    "registerDescription": "ParaZeni hesabını oluşturmak için bilgilerini gir."
+  },
   "common": {
     "back": "Geri",
     "title": "Zitadel ile Giriş"

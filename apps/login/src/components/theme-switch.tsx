@@ -37,7 +37,7 @@ function getSelectedButtonStyle(isSelected: boolean): string {
   }
 }
 
-export default function ThemeSwitch() {
+export default function ThemeSwitch({ labels }: { labels: { light: string; system: string; dark: string } }) {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const themeMode = useThemeMode();
@@ -61,21 +61,24 @@ export default function ThemeSwitch() {
       <button
         className={`flex h-8 w-8 flex-row items-center justify-center ${toggleRoundness} transition-colors ${getSelectedButtonStyle(theme === "light")}`}
         onClick={() => setTheme("light")}
-        aria-label="Switch to light mode"
+        aria-pressed={theme === "light"}
+        aria-label={labels.light}
       >
         <SunIcon className="h-5 w-5" />
       </button>
       <button
         className={`flex h-8 w-8 flex-row items-center justify-center ${toggleRoundness} transition-colors ${getSelectedButtonStyle(theme === "system")}`}
         onClick={() => setTheme("system")}
-        aria-label="Switch to system mode"
+        aria-pressed={theme === "system"}
+        aria-label={labels.system}
       >
         <ComputerDesktopIcon className="h-4 w-4" />
       </button>
       <button
         className={`flex h-8 w-8 flex-row items-center justify-center ${toggleRoundness} transition-colors ${getSelectedButtonStyle(theme === "dark")}`}
         onClick={() => setTheme("dark")}
-        aria-label="Switch to dark mode"
+        aria-pressed={theme === "dark"}
+        aria-label={labels.dark}
       >
         <MoonIcon className="h-4 w-4" />
       </button>

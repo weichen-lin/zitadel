@@ -1,4 +1,11 @@
 {
+  "accountEntry": {
+    "navigation": "Dostęp do konta",
+    "login": "Zaloguj się",
+    "loginHeading": "Zaloguj się do ParaZeni",
+    "registerHeading": "Utwórz konto",
+    "registerDescription": "Podaj swoje dane, aby utworzyć konto ParaZeni."
+  },
   "common": {
     "back": "Powrót",
     "title": "Zaloguj się za pomocą Zitadel"

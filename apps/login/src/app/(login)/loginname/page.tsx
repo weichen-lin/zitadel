@@ -1,6 +1,5 @@
-import { DynamicTheme } from "@/components/dynamic-theme";
+import { AccountEntry } from "@/components/account-entry";
 import { SignInWithIdp } from "@/components/sign-in-with-idp";
-import { Translated } from "@/components/translated";
 import { UsernameForm } from "@/components/username-form";
 import { getServiceConfig } from "@/lib/service-url";
 import { getActiveIdentityProviders, getBrandingSettings, getDefaultOrg, getLoginSettings } from "@/lib/zitadel";
@@ -10,8 +9,8 @@ import { getTranslations } from "next-intl/server";
 import { headers } from "next/headers";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("loginname");
-  return { title: t("title") };
+  const t = await getTranslations("accountEntry");
+  return { title: t("login") };
 }
 
 export default async function Page(props: { searchParams: Promise<Record<string | number | symbol, string | undefined>> }) {
@@ -48,19 +47,19 @@ export default async function Page(props: { searchParams: Promise<Record<string 
     return resp.identityProviders;
   });
 
+  const t = await getTranslations("accountEntry");
   const branding = await getBrandingSettings({ serviceConfig, organization: organization ?? defaultOrganization });
 
   return (
-    <DynamicTheme branding={branding}>
-      <div className="flex flex-col space-y-4">
-        <h1>
-          <Translated i18nKey="title" namespace="loginname" />
-        </h1>
-        <p className="ztdl-p">
-          <Translated i18nKey="description" namespace="loginname" />
-        </p>
-      </div>
-
+    <AccountEntry
+      page="login"
+      branding={branding}
+      organization={organization}
+      requestId={requestId}
+      orgDomain={orgDomain}
+      showRegistration={!!(loginSettings?.allowLocalAuthentication && loginSettings.allowRegister)}
+    >
+      <h1>{t("loginHeading")}</h1>
       <div className="w-full">
         {loginSettings?.allowLocalAuthentication && (
           <UsernameForm
@@ -72,7 +71,6 @@ export default async function Page(props: { searchParams: Promise<Record<string 
             suffix={orgDomain}
             hideSuffix={branding?.hideLoginNameSuffix}
             submit={submit}
-            allowRegister={!!loginSettings?.allowRegister}
           ></UsernameForm>
         )}
 
@@ -89,6 +87,6 @@ export default async function Page(props: { searchParams: Promise<Record<string 
           </div>
         )}
       </div>
-    </DynamicTheme>
+    </AccountEntry>
   );
 }
