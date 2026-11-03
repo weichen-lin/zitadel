@@ -1,5 +1,3 @@
-// The settings row and both entry pages share one responsive frame.
-// Other authentication steps continue to use their configured DynamicTheme.
 .login-surface:has(.account-entry) {
   --entry-canvas: #f6f5f1;
   --entry-sheet: #fff;
@@ -127,6 +125,12 @@
     width: 133px;
   }
 }
+.account-artwork {
+  position: absolute;
+  inset: 88px 0 0;
+  overflow: hidden;
+  pointer-events: none;
+}
 .account-impression {
   position: absolute;
   pointer-events: none;
@@ -190,6 +194,60 @@
         border-color: var(--entry-error);
       }
     }
+  }
+}
+.account-step-heading {
+  display: grid;
+  justify-items: start;
+  > div:last-child {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+}
+.account-reset,
+.account-add {
+  color: var(--entry-ink);
+  font-size: 14px;
+  font-weight: 550;
+  &:hover {
+    color: var(--entry-accent);
+    text-decoration: underline;
+  }
+}
+.account-reset {
+  padding-block: 6px;
+}
+.account-choices {
+  .account-choice {
+    width: 100%;
+    padding: 12px;
+    border-color: var(--entry-line);
+    background: var(--entry-sheet);
+    box-shadow: none;
+    &:hover {
+      background: var(--entry-tint);
+    }
+  }
+  .account-choice-details {
+    overflow-wrap: anywhere;
+    line-height: 1.4;
+    > span:first-child {
+      font-weight: 600;
+    }
+  }
+}
+.account-add {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  margin-top: 8px;
+  padding-inline: 12px;
+  svg {
+    width: 20px;
+    height: 20px;
+    flex: none;
   }
 }
 .account-tabs {
@@ -319,7 +377,7 @@
       width: 113px;
     }
   }
-  .account-impression {
+  .account-artwork {
     display: none;
   }
   .account-content {

@@ -1,4 +1,4 @@
-import { DynamicTheme } from "@/components/dynamic-theme";
+import { AccountShell } from "@/components/account-entry";
 import { SetRegisterPasswordForm } from "@/components/set-register-password-form";
 import { Translated } from "@/components/translated";
 import { getServiceConfig } from "@/lib/service-url";
@@ -37,24 +37,23 @@ export default async function Page(props: { searchParams: Promise<Record<string 
   const loginSettings = await getLoginSettings({ serviceConfig, organization });
 
   return missingData ? (
-    <DynamicTheme branding={branding}>
-      <div className="flex flex-col items-center space-y-4">
+    <AccountShell branding={branding}>
+      <div className="account-step-heading">
         <h1>
           <Translated i18nKey="missingdata.title" namespace="register" />
         </h1>
-        <p className="ztdl-p">
+        <p className="account-description">
           <Translated i18nKey="missingdata.description" namespace="register" />
         </p>
       </div>
-      <div className="w-full"></div>
-    </DynamicTheme>
+    </AccountShell>
   ) : loginSettings?.allowRegister && loginSettings.allowLocalAuthentication ? (
-    <DynamicTheme branding={branding}>
-      <div className="flex flex-col space-y-4">
+    <AccountShell branding={branding}>
+      <div className="account-step-heading">
         <h1>
           <Translated i18nKey="password.title" namespace="register" />
         </h1>
-        <p className="ztdl-p">
+        <p className="account-description">
           <Translated i18nKey="description" namespace="register" />
         </p>
       </div>
@@ -71,18 +70,17 @@ export default async function Page(props: { searchParams: Promise<Record<string 
           ></SetRegisterPasswordForm>
         )}
       </div>
-    </DynamicTheme>
+    </AccountShell>
   ) : (
-    <DynamicTheme branding={branding}>
-      <div className="flex flex-col space-y-4">
+    <AccountShell branding={branding}>
+      <div className="account-step-heading">
         <h1>
           <Translated i18nKey="disabled.title" namespace="register" />
         </h1>
-        <p className="ztdl-p">
+        <p className="account-description">
           <Translated i18nKey="disabled.description" namespace="register" />
         </p>
       </div>
-      <div className="w-full"></div>
-    </DynamicTheme>
+    </AccountShell>
   );
 }

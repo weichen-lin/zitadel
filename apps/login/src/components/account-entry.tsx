@@ -15,6 +15,27 @@ type Props = {
   children: ReactNode;
 };
 
+export function AccountShell({ branding, children }: Pick<Props, "branding" | "children">) {
+  return (
+    <ThemeWrapper branding={branding}>
+      <main className="account-entry">
+        <div className="account-identity">
+          <Logo lightSrc={branding?.lightTheme?.logoUrl} darkSrc={branding?.darkTheme?.logoUrl} />
+          <div className="account-artwork" aria-hidden="true">
+            <div
+              className="account-impression"
+              style={{
+                maskImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand/parazeni-impression.svg)`,
+              }}
+            />
+          </div>
+        </div>
+        <div className="account-content">{children}</div>
+      </main>
+    </ThemeWrapper>
+  );
+}
+
 export async function AccountEntry({
   page,
   branding,
@@ -32,40 +53,26 @@ export async function AccountEntry({
   if (orgDomain) query.orgDomain = orgDomain;
 
   return (
-    <ThemeWrapper branding={branding}>
-      <main className="account-entry">
-        <div className="account-identity">
-          <Logo lightSrc={branding?.lightTheme?.logoUrl} darkSrc={branding?.darkTheme?.logoUrl} />
-          <div
-            className="account-impression"
-            aria-hidden="true"
-            style={{
-              maskImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ""}/brand/parazeni-impression.svg)`,
-            }}
-          />
-        </div>
-        <div className="account-content">
-          {showRegistration && (
-            <nav className="account-tabs" aria-label={t("navigation")}>
-              {page === "login" ? (
-                <span aria-current="page">{t("login")}</span>
-              ) : (
-                <Link href={{ pathname: "/loginname", query }} prefetch={false}>
-                  {t("login")}
-                </Link>
-              )}
-              {page === "register" ? (
-                <span aria-current="page">{login("register")}</span>
-              ) : (
-                <Link href={{ pathname: "/register", query }} prefetch={false} data-testid="register-button">
-                  {login("register")}
-                </Link>
-              )}
-            </nav>
+    <AccountShell branding={branding}>
+      {showRegistration && (
+        <nav className="account-tabs" aria-label={t("navigation")}>
+          {page === "login" ? (
+            <span aria-current="page">{t("login")}</span>
+          ) : (
+            <Link href={{ pathname: "/loginname", query }} prefetch={false}>
+              {t("login")}
+            </Link>
           )}
-          {children}
-        </div>
-      </main>
-    </ThemeWrapper>
+          {page === "register" ? (
+            <span aria-current="page">{login("register")}</span>
+          ) : (
+            <Link href={{ pathname: "/register", query }} prefetch={false} data-testid="register-button">
+              {login("register")}
+            </Link>
+          )}
+        </nav>
+      )}
+      {children}
+    </AccountShell>
   );
 }

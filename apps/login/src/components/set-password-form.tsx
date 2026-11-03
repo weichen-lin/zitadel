@@ -171,8 +171,8 @@ export function SetPasswordForm({
   return (
     <>
       {samlData && <AutoSubmitForm url={samlData.url} fields={samlData.fields} />}
-      <form className="w-full">
-        <div className="mb-4 grid grid-cols-1 gap-4 pt-4">
+      <form className="account-form">
+        <div className="mb-4 grid grid-cols-1 gap-4">
           <input
             type="text"
             name="username"
@@ -259,8 +259,7 @@ export function SetPasswordForm({
 
         {error && <Alert>{error}</Alert>}
 
-        <div className="mt-8 flex w-full flex-row items-center justify-between">
-          <BackButton data-testid="back-button" />
+        <div className="account-actions">
           <Button
             type="submit"
             variant={ButtonVariants.Primary}
@@ -270,6 +269,7 @@ export function SetPasswordForm({
           >
             {loading && <Spinner className="mr-2 h-5 w-5" />} <Translated i18nKey="set.submit" namespace="password" />
           </Button>
+          <BackButton data-testid="back-button" />
         </div>
       </form>
     </>

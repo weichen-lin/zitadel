@@ -1,5 +1,5 @@
 import { Alert, AlertType } from "@/components/alert";
-import { DynamicTheme } from "@/components/dynamic-theme";
+import { AccountShell } from "@/components/account-entry";
 import { SetPasswordForm } from "@/components/set-password-form";
 import { Translated } from "@/components/translated";
 import { UserAvatar } from "@/components/user-avatar";
@@ -68,13 +68,13 @@ export default async function Page(props: { searchParams: Promise<Record<string 
 
   if (!loginSettings) {
     return (
-      <DynamicTheme branding={branding}>
+      <AccountShell branding={branding}>
         <div className="mx-auto flex max-w-sm flex-col space-y-4 pt-4">
           <Alert>
             <Translated i18nKey="errors.couldNotGetLoginSettings" namespace="loginname" />
           </Alert>
         </div>
-      </DynamicTheme>
+      </AccountShell>
     );
   }
 
@@ -101,10 +101,10 @@ export default async function Page(props: { searchParams: Promise<Record<string 
   }
 
   return (
-    <DynamicTheme branding={branding}>
-      <div className="flex flex-col space-y-4">
+    <AccountShell branding={branding}>
+      <div className="account-step-heading">
         <h1>{session?.factors?.user?.displayName ?? <Translated i18nKey="set.title" namespace="password" />}</h1>
-        <p className="ztdl-p mb-6 block">
+        <p className="account-description">
           <Translated i18nKey="set.description" namespace="password" />
         </p>
 
@@ -159,6 +159,6 @@ export default async function Page(props: { searchParams: Promise<Record<string 
           </div>
         )}
       </div>
-    </DynamicTheme>
+    </AccountShell>
   );
 }

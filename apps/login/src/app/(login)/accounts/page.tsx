@@ -1,4 +1,4 @@
-import { DynamicTheme } from "@/components/dynamic-theme";
+import { AccountShell } from "@/components/account-entry";
 import { SessionsList } from "@/components/sessions-list";
 import { Translated } from "@/components/translated";
 import { getAllSessions } from "@/lib/cookies";
@@ -105,31 +105,23 @@ export default async function Page(props: { searchParams: Promise<Record<string 
   }
 
   return (
-    <DynamicTheme branding={branding}>
-      <div className="flex flex-col space-y-4">
+    <AccountShell branding={branding}>
+      <div className="account-step-heading">
         <h1>
           <Translated i18nKey="title" namespace="accounts" />
         </h1>
-        <p className="ztdl-p">
+        <p className="account-description">
           <Translated i18nKey="description" namespace="accounts" />
         </p>
       </div>
 
-      <div className="w-full">
-        <div className="flex w-full flex-col space-y-2">
-          <SessionsList sessions={sessions} requestId={requestId} />
-          <Link href={`/loginname?` + params}>
-            <div className="flex flex-row items-center rounded-md px-4 py-3 transition-all hover:bg-black/10 dark:hover:bg-white/10">
-              <div className="mr-4 flex h-8 w-8 flex-row items-center justify-center rounded-full bg-black/5 dark:bg-white/5">
-                <UserPlusIcon className="h-5 w-5" />
-              </div>
-              <span className="text-sm">
-                <Translated i18nKey="addAnother" namespace="accounts" />
-              </span>
-            </div>
-          </Link>
-        </div>
+      <div className="account-choices">
+        <SessionsList sessions={sessions} requestId={requestId} />
+        <Link className="account-add" href={`/loginname?` + params}>
+          <UserPlusIcon aria-hidden="true" />
+          <Translated i18nKey="addAnother" namespace="accounts" />
+        </Link>
       </div>
-    </DynamicTheme>
+    </AccountShell>
   );
 }

@@ -15,9 +15,9 @@ function CheckIcon({ title }: { title: string }) {
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
-      strokeWidth={1.5}
+      strokeWidth={2}
       stroke="currentColor"
-      className="las la-check mr-2 h-6 w-6 flex-none text-lg text-green-500 dark:text-green-500"
+      className="mt-0.5 h-4 w-4 text-green-500"
       role="img"
     >
       <title>{title}</title>
@@ -29,11 +29,11 @@ function CheckIcon({ title }: { title: string }) {
 function CrossIcon({ title }: { title: string }) {
   return (
     <svg
-      className="las la-times text-warn-light-500 dark:text-warn-dark-500 mr-2 h-6 w-6 flex-none text-lg"
+      className="text-warn-light-500 dark:text-warn-dark-500 mt-0.5 h-4 w-4"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
-      strokeWidth={1.5}
+      strokeWidth={2}
       stroke="currentColor"
       role="img"
     >
@@ -46,7 +46,7 @@ function CrossIcon({ title }: { title: string }) {
 function renderIcon(matched: boolean, t: ReturnType<typeof useTranslations>) {
   return matched ? <CheckIcon title={t("complexity.matches")} /> : <CrossIcon title={t("complexity.doesNotMatch")} />;
 }
-const desc = "text-14px leading-4 text-input-light-label dark:text-input-dark-label";
+const desc = "text-sm leading-5 text-input-light-label dark:text-input-dark-label";
 
 export function PasswordComplexity({ passwordComplexitySettings, password, equals }: Props) {
   const t = useTranslations("password");
@@ -57,9 +57,9 @@ export function PasswordComplexity({ passwordComplexitySettings, password, equal
   const hasLowercase = lowerCaseValidator(password);
 
   return (
-    <div className="mb-4 grid grid-cols-2 gap-x-8 gap-y-2">
+    <ul className="m-0 grid list-none gap-1.5 p-0">
       {passwordComplexitySettings.minLength != undefined ? (
-        <div className="flex flex-row items-center" data-testid="length-check">
+        <li className="grid grid-cols-[1rem_minmax(0,1fr)] items-start gap-2" data-testid="length-check">
           {renderIcon(hasMinLength, t)}
           <span className={desc}>
             <Translated
@@ -68,46 +68,46 @@ export function PasswordComplexity({ passwordComplexitySettings, password, equal
               data={{ minLength: passwordComplexitySettings.minLength.toString() }}
             />
           </span>
-        </div>
+        </li>
       ) : null}
       {passwordComplexitySettings.requiresSymbol && (
-        <div className="flex flex-row items-center" data-testid="symbol-check">
+        <li className="grid grid-cols-[1rem_minmax(0,1fr)] items-start gap-2" data-testid="symbol-check">
           {renderIcon(hasSymbol, t)}
           <span className={desc}>
             <Translated i18nKey="complexity.hasSymbol" namespace="password" />
           </span>
-        </div>
+        </li>
       )}
       {passwordComplexitySettings.requiresNumber && (
-        <div className="flex flex-row items-center" data-testid="number-check">
+        <li className="grid grid-cols-[1rem_minmax(0,1fr)] items-start gap-2" data-testid="number-check">
           {renderIcon(hasNumber, t)}
           <span className={desc}>
             <Translated i18nKey="complexity.hasNumber" namespace="password" />
           </span>
-        </div>
+        </li>
       )}
       {passwordComplexitySettings.requiresUppercase && (
-        <div className="flex flex-row items-center" data-testid="uppercase-check">
+        <li className="grid grid-cols-[1rem_minmax(0,1fr)] items-start gap-2" data-testid="uppercase-check">
           {renderIcon(hasUppercase, t)}
           <span className={desc}>
             <Translated i18nKey="complexity.hasUppercase" namespace="password" />
           </span>
-        </div>
+        </li>
       )}
       {passwordComplexitySettings.requiresLowercase && (
-        <div className="flex flex-row items-center" data-testid="lowercase-check">
+        <li className="grid grid-cols-[1rem_minmax(0,1fr)] items-start gap-2" data-testid="lowercase-check">
           {renderIcon(hasLowercase, t)}
           <span className={desc}>
             <Translated i18nKey="complexity.hasLowercase" namespace="password" />
           </span>
-        </div>
+        </li>
       )}
-      <div className="flex flex-row items-center" data-testid="equal-check">
+      <li className="grid grid-cols-[1rem_minmax(0,1fr)] items-start gap-2" data-testid="equal-check">
         {renderIcon(equals, t)}
         <span className={desc}>
           <Translated i18nKey="complexity.equals" namespace="password" />
         </span>
-      </div>
-    </div>
+      </li>
+    </ul>
   );
 }

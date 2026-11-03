@@ -1,6 +1,6 @@
 import { Alert } from "@/components/alert";
 import { ChangePasswordForm } from "@/components/change-password-form";
-import { DynamicTheme } from "@/components/dynamic-theme";
+import { AccountShell } from "@/components/account-entry";
 import { Translated } from "@/components/translated";
 import { UserAvatar } from "@/components/user-avatar";
 import { getServiceConfig } from "@/lib/service-url";
@@ -40,12 +40,12 @@ export default async function Page(props: { searchParams: Promise<Record<string 
   });
 
   return (
-    <DynamicTheme branding={branding}>
-      <div className="flex flex-col space-y-4">
+    <AccountShell branding={branding}>
+      <div className="account-step-heading">
         <h1>
           <Translated i18nKey="change.title" namespace="password" />
         </h1>
-        <p className="ztdl-p mb-6 block">
+        <p className="account-description">
           <Translated i18nKey="change.description" namespace="password" />
         </p>
 
@@ -89,6 +89,6 @@ export default async function Page(props: { searchParams: Promise<Record<string 
           </div>
         )}
       </div>
-    </DynamicTheme>
+    </AccountShell>
   );
 }

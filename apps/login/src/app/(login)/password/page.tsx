@@ -1,5 +1,5 @@
 import { Alert } from "@/components/alert";
-import { DynamicTheme } from "@/components/dynamic-theme";
+import { AccountShell } from "@/components/account-entry";
 import { PasswordForm } from "@/components/password-form";
 import { Translated } from "@/components/translated";
 import { UserAvatar } from "@/components/user-avatar";
@@ -51,12 +51,12 @@ export default async function Page(props: { searchParams: Promise<Record<string 
   });
 
   return (
-    <DynamicTheme branding={branding}>
-      <div className="flex flex-col space-y-4">
+    <AccountShell branding={branding}>
+      <div className="account-step-heading">
         <h1>
           <Translated i18nKey="verify.title" namespace="password" />
         </h1>
-        <p className="ztdl-p">
+        <p className="account-description">
           <Translated i18nKey="verify.description" namespace="password" />
         </p>
 
@@ -95,6 +95,6 @@ export default async function Page(props: { searchParams: Promise<Record<string 
           />
         )}
       </div>
-    </DynamicTheme>
+    </AccountShell>
   );
 }

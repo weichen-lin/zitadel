@@ -111,7 +111,7 @@ export function PasswordForm({ loginSettings, loginName, organization, defaultOr
   return (
     <>
       {samlData && <AutoSubmitForm url={samlData.url} fields={samlData.fields} />}
-      <form className="w-full">
+      <form className="account-form">
         <div className={`${error && "animate-shake transform-gpu"}`}>
           <TextInput
             type="password"
@@ -123,7 +123,7 @@ export function PasswordForm({ loginSettings, loginName, organization, defaultOr
           />
           {!loginSettings?.hidePasswordReset && (
             <button
-              className="hover:text-primary-light-500 dark:hover:text-primary-dark-500 text-sm transition-all"
+              className="account-reset"
               onClick={() => resetPasswordAndContinue()}
               type="button"
               disabled={loading}
@@ -148,12 +148,9 @@ export function PasswordForm({ loginSettings, loginName, organization, defaultOr
           </div>
         )}
 
-        <div className="mt-8 flex w-full flex-row items-center">
-          <BackButton data-testid="back-button" />
-          <span className="flex-grow"></span>
+        <div className="account-actions">
           <Button
             type="submit"
-            className="self-end"
             variant={ButtonVariants.Primary}
             disabled={loading || !formState.isValid}
             onClick={handleSubmit(submitPassword)}
@@ -161,6 +158,7 @@ export function PasswordForm({ loginSettings, loginName, organization, defaultOr
           >
             {loading && <Spinner className="mr-2 h-5 w-5" />} <Translated i18nKey="verify.submit" namespace="password" />
           </Button>
+          <BackButton data-testid="back-button" />
         </div>
       </form>
     </>
