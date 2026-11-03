@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   publish:
+    if: github.event.deleted == false
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
@@ -19,7 +20,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
           persist-credentials: false
+      - name: Require a commit from parazeni-login
+        run: |
+          branch=refs/remotes/origin/parazeni-login
+          if ! git show-ref --verify --quiet "$branch"; then
+            echo "::error::Remote branch parazeni-login is missing."
+            exit 1
+          fi
+          if ! git merge-base --is-ancestor HEAD "$branch"; then
+            echo "::error::The release tag must point to a commit in parazeni-login."
+            exit 1
+          fi
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
